@@ -1,15 +1,22 @@
 import http from '@/util/http';
+import * as api from '@/config/api';
 
 const Account = {
-  register(params) {
-    return http.post('http://127.0.0.1:7001/account/register', params);
+  register (params) {
+    return http.post(api.account.register, params)
+      .then(({ status, data }) => ({ status, data }))
+      .catch(({ response }) => ({ status: response.status, data: response.data }));
   },
-  login(params) {
-    return http.post('http://127.0.0.1:7001/account/login', params);
+  login (params) {
+    return http.post(api.account.login, params)
+      .then(({ status, data }) => ({ status, data }))
+      .catch(({ response }) => ({ status: response.status, data: response.data }));
   },
-  list(params) {
-    return http.post('http://127.0.0.1:7001/account/list', params);
-  },
+  list (params) {
+    return http.get(api.account.list, params)
+      .then(({ status, data }) => ({ status, data }))
+      .catch(({ response }) => ({ status: response.status, data: response.data }));
+  }
 };
 
-export default Account;
+export default Account

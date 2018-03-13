@@ -1,6 +1,6 @@
 # egg-project-web
 
-> 前端，渲染数据
+> 前端采用vue+axios，渲染数据
 
 ## Build Setup
 

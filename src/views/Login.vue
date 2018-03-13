@@ -29,12 +29,13 @@
     },
     methods: {
       async loginHandle() {
-        const res = await Account.login(this.formData);
-        if(res) {
+        const { status, data } = await Account.login(this.formData);
+        if(status === 200) {
           this.$router.push({
             name: 'AccountList'
           })
-
+        } else {
+          window.console.error(data);
         }
       }
     }

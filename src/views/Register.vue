@@ -29,9 +29,11 @@
     },
     methods: {
       async registerHandle() {
-        const res = await Account.register(this.formData);
-        if(res) {
+        const { status, data } = await Account.register(this.formData);
+        if(status === 200) {
           this.$router.push({ name: 'Login' });
+        } else {
+          window.console.error(data);
         }
       }
     }

@@ -4,7 +4,7 @@ import Register from '@/views/Register'
 import Login from '@/views/Login'
 import AccountList from '@/views/AccountList'
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
   mode: 'history',
@@ -23,6 +23,6 @@ export default new Router({
       path: '/account/list',
       name: 'accountList',
       component: AccountList
-    },
+    }
   ]
 })
